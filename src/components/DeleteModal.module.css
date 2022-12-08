@@ -1,0 +1,68 @@
+/* MOBILE */
+.deleteModal {
+  display: none;
+  border-radius: 0.5rem;
+  position: absolute;
+  background: #474747;
+  width: 22rem;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.55);
+  overflow: hidden;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.deleteModalVisible {
+  display: block;
+}
+
+.deleteModalConfirmation {
+  background: #03a1fc;
+  color: #fff;
+  font-size: 1.4rem;
+  font-weight: 500;
+  padding: 1rem 1rem;
+}
+
+.deleteModalText {
+  border-bottom: 1px solid rgb(53, 53, 53);
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 300;
+  padding: 1rem 1rem;
+}
+
+.deleteModalButtons {
+  display: flex;
+  flex-direction: row-reverse;
+  padding: 1rem 1rem;
+}
+
+.deleteModalButtons button {
+  /* all: unset; */
+}
+
+.deleteModalConfirmBTN {
+  all: unset;
+  background: #03a1fc;
+  border: none;
+  border-radius: 0.2rem;
+  color: #fff;
+  cursor: pointer;
+  height: 2rem;
+  padding: 0rem 1rem;
+}
+
+.deleteModalCancelBTN {
+  all: unset;
+  background: none;
+  border: 1px solid #03a1fc;
+  border-radius: 0.2rem;
+  color: #fff;
+  cursor: pointer;
+  margin-left: 1rem;
+  outline: none;
+  height: 2rem;
+  padding: 0rem 1rem;
+}

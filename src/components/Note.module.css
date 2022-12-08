@@ -1,0 +1,48 @@
+.note {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  font-family: "Montserrat", sans-serif;
+  padding: 1rem 1.4rem;
+  border-bottom: 1px solid #000;
+  position: relative;
+  z-index: 1;
+}
+
+.note:hover {
+  background: rgba(3, 161, 252, 0.05);
+}
+
+.noteActive {
+  border: 2px solid #03a1fc;
+}
+
+.noteTitle {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.noteBody {
+  color: #b9b9b9;
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+
+.noteDate {
+  color: #878787;
+  font-size: 0.8rem;
+  font-weight: 300;
+  margin-top: 0.2rem;
+}
+
+.noteTrashIcon {
+  color: #fff;
+  align-self: center;
+  cursor: pointer;
+  transition: color 0.5s ease;
+}
+
+.noteTrashIcon:hover {
+  color: #d91a43;
+  transition: color 0.5s ease;
+}

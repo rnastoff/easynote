@@ -1,0 +1,121 @@
+.main {
+  background: #262626;
+  height: 100vh;
+  position: relative;
+  overflow-y: auto;
+  z-index: 0;
+}
+
+.mainOverlay {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.5);
+  height: 100vh;
+  width: 100vw;
+}
+
+.mainEmpty {
+  color: #fff;
+  font-size: 2rem;
+  padding: 0.8rem 1.4rem;
+}
+
+.mainBlur {
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+}
+
+header {
+  /* border: 1px solid red; */
+  border-bottom: 1px solid #000;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.8rem 1.4rem;
+}
+
+.mainLogoMenuGroup {
+  display: flex;
+}
+
+.mainMenuIcon {
+  color: #fff;
+  cursor: pointer;
+  align-self: center;
+  height: 20px;
+  width: 20px;
+}
+
+.mainLogo {
+  background: #262626;
+  color: #03a1fc;
+  font-family: "Sriracha", cursive;
+  font-size: 1.6rem;
+  letter-spacing: -1px;
+  margin-left: 1rem;
+}
+
+.mainAddNoteBTN {
+  all: unset;
+  align-self: center;
+  background: #03a1fc;
+  border-radius: 0.2rem;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 0.8rem;
+  height: 2rem;
+  padding: 0rem 1rem;
+  transition: background 0.5s ease;
+}
+
+.mainAddNoteBTN:hover {
+  background: #0a79b9;
+  transition: background 0.5s ease;
+}
+
+.mainNoteGroup {
+  padding: 0.8rem 1.4rem;
+}
+
+.mainTitleInput {
+  display: block;
+  width: 100%;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 2rem;
+}
+
+.mainBodyInput {
+  display: block;
+  width: 100%;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1rem;
+  height: 70vh;
+}
+
+.mainTitleInput:focus {
+  outline: 1px solid #03a1fc;
+}
+
+.mainBodyInput:focus {
+  outline: none;
+}
+
+@media screen and (min-width: 1000px) {
+  .main {
+    width: 100%;
+  }
+
+  .mainMenuIcon {
+    display: none;
+  }
+
+  .mainLogo {
+    margin-left: 0;
+  }
+}

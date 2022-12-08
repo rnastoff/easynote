@@ -1,0 +1,84 @@
+/* MOBILE  */
+.sidebar {
+  /* display: none; */
+  background: #1a1a1a;
+  border-right: 1px solid #000;
+  color: #fff;
+  height: 100vh;
+  width: 24rem;
+  position: absolute;
+  z-index: 1;
+  overflow-y: auto;
+  top: 0;
+  left: -24rem; /* Animate Menu open -23rem*/
+  transition: left 1s ease;
+}
+
+.sidebarVisible {
+  left: 0rem;
+  transition: left 1s ease;
+}
+
+.sidebarCloseIcon {
+  color: #fff;
+  align-self: center;
+  cursor: pointer;
+  height: 25px;
+  width: 25px;
+  transition: color 0.5s ease;
+}
+
+.sidebarCloseIcon:hover {
+  color: #03a1fc;
+  transition: color 0.5s ease;
+}
+
+.sidebarHeader {
+  padding: 0.8rem 1.4rem;
+  border-bottom: 1px solid #000;
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  color: #03a1fc;
+  font-family: "Sriracha", cursive;
+  font-size: 1.6rem;
+  letter-spacing: -1px;
+  align-self: center;
+}
+
+.sortIcon {
+  align-self: center;
+  cursor: pointer;
+}
+
+.sidebarAddNote {
+  all: unset;
+  align-self: center;
+  background: #03a1fc;
+  border-radius: 0.2rem;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 0.8rem;
+  height: 2rem;
+  padding: 0rem 1rem;
+  transition: background 0.5s ease;
+}
+
+.sidebarAddNote:hover {
+  background: #0a79b9;
+  transition: background 0.5s ease;
+}
+
+/* DESKTOP */
+@media screen and (min-width: 1000px) {
+  .sidebar {
+    display: block;
+    position: static;
+  }
+
+  .sidebarCloseIcon {
+    display: none;
+  }
+}
