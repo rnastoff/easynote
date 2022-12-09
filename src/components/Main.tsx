@@ -1,3 +1,5 @@
+import { useRef } from 'react';
+
 import styles from './Main.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons'
@@ -20,8 +22,7 @@ interface Props {
 const Main = (props: Props) => {
 
   const onEditInput = (key: string, value: string) => {
-    // Because activeNote can be undefined, we need a conditional
-    // if not, we'd get errors with the noteProp interface
+    //activeNote might be undefined
     if (props.activeNote) {
       let newNote = {
         ...props.activeNote,
@@ -32,10 +33,20 @@ const Main = (props: Props) => {
     }
   }
 
+  // Focus textarea when pressing enter inside input
+  const textAreaRef = useRef<HTMLTextAreaElement | null>(null);
+  const handleEnter = (event: React.KeyboardEvent<HTMLElement>) => {
+    console.log(event);
+    if (event.key.toLowerCase() === "enter") {
+      if (textAreaRef.current) {
+        event.preventDefault();
+        textAreaRef.current.focus()
+      }
+    }
+  }
 
   return (
     <main className={styles.main}>
-      {/* <div className={styles.mainOverlay}></div> */}
       <header>
         <div className={styles.mainLogoMenuGroup}>
           <FontAwesomeIcon
@@ -60,11 +71,13 @@ const Main = (props: Props) => {
             className={styles.mainTitleInput}
             value={props.activeNote.title}
             onChange={(e) => onEditInput("title", e.target.value)}
+            onKeyDown={handleEnter}
           />
           <textarea
             className={styles.mainBodyInput}
             value={props.activeNote.body}
             onChange={(e) => onEditInput("body", e.target.value)}
+            ref={textAreaRef}
           />
         </form>
         :

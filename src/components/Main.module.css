@@ -6,13 +6,6 @@
   z-index: 0;
 }
 
-.mainOverlay {
-  position: absolute;
-  background: rgba(0, 0, 0, 0.5);
-  height: 100vh;
-  width: 100vw;
-}
-
 .mainEmpty {
   color: #fff;
   font-size: 2rem;
