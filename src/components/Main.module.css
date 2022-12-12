@@ -68,6 +68,10 @@ header {
   transition: background 0.5s ease;
 }
 
+.mainAddNoteBTN:active {
+  transform: scale(0.95, 0.95);
+}
+
 .mainNoteGroup {
   padding: 0.8rem 1.4rem;
 }
@@ -88,7 +92,7 @@ header {
   border: none;
   color: #fff;
   font-size: 1rem;
-  height: 70vh;
+  /* height: 70vh; */
 }
 
 .mainTitleInput:focus {

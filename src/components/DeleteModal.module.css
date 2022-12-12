@@ -52,6 +52,16 @@
   cursor: pointer;
   height: 2rem;
   padding: 0rem 1rem;
+  transition: background 0.5s ease;
+}
+
+.deleteModalConfirmBTN:hover {
+  background: #0a79b9;
+  transition: background 0.5s ease;
+}
+
+.deleteModalConfirmBTN:active {
+  transform: scale(0.95, 0.95);
 }
 
 .deleteModalCancelBTN {
@@ -65,4 +75,14 @@
   outline: none;
   height: 2rem;
   padding: 0rem 1rem;
+  transition: color 0.5s ease;
+}
+
+.deleteModalCancelBTN:hover {
+  color: #adadad;
+  transition: color 0.5s ease;
+}
+
+.deleteModalCancelBTN:active {
+  transform: scale(0.95, 0.95);
 }

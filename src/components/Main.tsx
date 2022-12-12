@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 import styles from './Main.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -20,9 +20,11 @@ interface Props {
 }
 
 const Main = (props: Props) => {
+  const textAreaRef = useRef<HTMLTextAreaElement | null>(null);
+
+  const [textAreaValue, setTextAreaValue] = useState<String>();
 
   const onEditInput = (key: string, value: string) => {
-    //activeNote might be undefined
     if (props.activeNote) {
       let newNote = {
         ...props.activeNote,
@@ -30,13 +32,11 @@ const Main = (props: Props) => {
         lastModified: Date.now()
       }
       props.onUpdateNote(newNote);
+      setTextAreaValue(value);
     }
   }
 
-  // Focus textarea when pressing enter inside input
-  const textAreaRef = useRef<HTMLTextAreaElement | null>(null);
-  const handleEnter = (event: React.KeyboardEvent<HTMLElement>) => {
-    console.log(event);
+  const onPressEnter = (event: React.KeyboardEvent<HTMLElement>) => {
     if (event.key.toLowerCase() === "enter") {
       if (textAreaRef.current) {
         event.preventDefault();
@@ -44,6 +44,35 @@ const Main = (props: Props) => {
       }
     }
   }
+
+  useEffect(() => {
+    // Adjust textarea height to text
+    if (textAreaRef && textAreaRef.current) {
+      textAreaRef.current.style.height = "0px";
+      const scrollHeight = textAreaRef.current.scrollHeight;
+      textAreaRef.current.style.height = scrollHeight + "px";
+    }
+  }, [textAreaValue]);
+
+
+
+  const activeNoteHTML = <form className={styles.mainNoteGroup} onSubmit={(e) => e.preventDefault()}>
+    <input
+      type="text"
+      className={styles.mainTitleInput}
+      value={props.activeNote && props.activeNote.title}
+      onChange={(e) => onEditInput("title", e.target.value)}
+      onKeyDown={onPressEnter}
+    />
+    <textarea
+      className={styles.mainBodyInput}
+      value={props.activeNote && props.activeNote.body}
+      onChange={(e) => onEditInput("body", e.target.value)}
+      ref={textAreaRef}
+    />
+  </form>;
+
+  const noActiveNotesHTML = <div className={styles.mainEmpty}>There are no active notes</div>;
 
   return (
     <main className={styles.main}>
@@ -62,27 +91,7 @@ const Main = (props: Props) => {
         >Add Note</button>
       </header>
 
-
-
-      {props.activeNote ?
-        <form className={styles.mainNoteGroup} onSubmit={(e) => e.preventDefault()}>
-          <input
-            type="text"
-            className={styles.mainTitleInput}
-            value={props.activeNote.title}
-            onChange={(e) => onEditInput("title", e.target.value)}
-            onKeyDown={handleEnter}
-          />
-          <textarea
-            className={styles.mainBodyInput}
-            value={props.activeNote.body}
-            onChange={(e) => onEditInput("body", e.target.value)}
-            ref={textAreaRef}
-          />
-        </form>
-        :
-        <div className={styles.mainEmpty}>There are no active notes</div>
-      }
+      {props.activeNote ? activeNoteHTML : noActiveNotesHTML}
     </main>
   )
 }

@@ -59,8 +59,8 @@ function App() {
   }
 
   //DEBUGGING
-  useEffect(() => console.log(notes), [notes]);
-  useEffect(() => console.log(activeNoteID), [activeNoteID]);
+  // useEffect(() => console.log(notes), [notes]);
+  // useEffect(() => console.log(activeNoteID), [activeNoteID]);
 
   return (
     <div className={styles.app}>
