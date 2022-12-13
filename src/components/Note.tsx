@@ -25,11 +25,18 @@ const Note = (props: Props) => {
 
   let highlightedNote = props.id === props.activeNoteID ? `${styles.noteActive}` : "";
 
+  const truncateText = (text: string) => {
+    if (text.length > 20) {
+      return text.substring(0, 20) + "...";
+    }
+    return text;
+  }
+
   return (
     <div className={`${styles.note} ${highlightedNote}`} onClick={() => props.setActiveNoteID(props.id)}>
       <div className={styles.noteDetails}>
-        <div className={styles.noteTitle}>{props.title && props.title.substring(0, 20) + "..."}</div>
-        <div className={styles.noteBody}>{props.body && props.body.substring(0, 25) + "..."}</div>
+        <div className={styles.noteTitle}>{truncateText(props.title)}</div>
+        <div className={styles.noteBody}>{truncateText(props.body)}</div>
         <div className={styles.noteDate}>
           Last modified {new Date(props.lastModified).toLocaleDateString("en-US", {
             hour: "2-digit",

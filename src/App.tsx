@@ -22,6 +22,7 @@ function App() {
   const [deleteModalVisible, setDeleteModalVisible] = useState(false);
 
   useEffect(() => {
+    console.log("yup");
     localStorage.setItem("notes", JSON.stringify(notes));
   }, [notes])
 
