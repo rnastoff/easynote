@@ -84,6 +84,7 @@ header {
   border: none;
   color: #fff;
   font-size: 1rem;
+  overflow: hidden;
   /* height: 70vh; */
 }
 
