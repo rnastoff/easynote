@@ -18,18 +18,20 @@ const DeleteModal = (props: Props) => {
   }
 
   return (
-    <div className={`${styles.deleteModal} ${deleteModalVisible}`}>
+    <div className={`${styles.deleteModal} ${deleteModalVisible}`} data-testid="deleteModal">
       <div className={styles.deleteModalConfirmation}>Confirm</div>
       <div className={styles.deleteModalText}>Delete This Note?</div>
 
       <div className={styles.deleteModalButtons}>
         <button
           className={styles.deleteModalCancelBTN}
+          role="button"
           onClick={() => props.setDeleteModalVisible(false)}
         >Cancel
         </button>
         <button
           className={styles.deleteModalConfirmBTN}
+          role="button"
           onClick={onDeleteConfirm}
         >Confirm
         </button>

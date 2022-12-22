@@ -59,6 +59,7 @@ const Main = (props: Props) => {
   const activeNoteHTML = <form className={styles.mainNoteGroup} onSubmit={(e) => e.preventDefault()}>
     <input
       type="text"
+      role="input"
       className={styles.mainTitleInput}
       value={props.activeNote && props.activeNote.title}
       onChange={(e) => onEditInput("title", e.target.value)}
@@ -66,6 +67,7 @@ const Main = (props: Props) => {
     />
     <textarea
       className={styles.mainBodyInput}
+      role="textarea"
       value={props.activeNote && props.activeNote.body}
       onChange={(e) => onEditInput("body", e.target.value)}
       ref={textAreaRef}

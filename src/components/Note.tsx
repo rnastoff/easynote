@@ -33,7 +33,7 @@ const Note = (props: Props) => {
   }
 
   return (
-    <div className={`${styles.note} ${highlightedNote}`} onClick={() => props.setActiveNoteID(props.id)}>
+    <div className={`${styles.note} ${highlightedNote}`} onClick={() => props.setActiveNoteID(props.id)} data-testid="note">
       <div className={styles.noteDetails}>
         <div className={styles.noteTitle}>{truncateText(props.title)}</div>
         <div className={styles.noteBody}>{truncateText(props.body)}</div>
@@ -47,6 +47,7 @@ const Note = (props: Props) => {
 
       <FontAwesomeIcon
         className={styles.noteTrashIcon}
+        data-testid="deleteIcon"
         icon={faTrashCan}
         onClick={() => props.setDeleteModalVisible(true)}
       />
